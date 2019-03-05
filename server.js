@@ -11,21 +11,26 @@ app.get('/tv/pauseResume', (req, res) => {
   server
     .pauseResume()
     .then(data => {
-      res.status(200).send('it worked!! :D')
+      res.status(200).send('Tv paused/resumed')
     })
     .catch(error => {
-      console.log('Request error', error)
+      res.status(500).send(`Server error: ${error}`)
     })
+})
+
+app.get('/tv/turnOn', (req, res) => {
+  server.turnOn()
+  res.status(200).send('Tv turned on')
 })
 
 app.get('/tv/turnOff', (req, res) => {
   server
     .turnOff()
     .then(data => {
-      res.status(200).send('it worked!! :D')
+      res.status(200).send('Tv turned off')
     })
     .catch(error => {
-      console.log('Request error', error)
+      res.status(500).send(`Server error: ${error}`)
     })
 })
 
@@ -33,10 +38,10 @@ app.get('/tv/mute', (req, res) => {
   server
     .mute()
     .then(data => {
-      res.status(200).send('it worked!! :D')
+      res.status(200).send('Tv muted')
     })
     .catch(error => {
-      console.log('Request error', error)
+      res.status(500).send(`Server error: ${error}`)
     })
 })
 
@@ -44,10 +49,10 @@ app.get('/tv/ambilight', (req, res) => {
   server
     .toggleAmbilight()
     .then(data => {
-      res.status(200).send('it worked!! :D')
+      res.status(200).send('Ambilight opened')
     })
     .catch(error => {
-      console.log('Request error', error)
+      res.status(500).send(`Server error: ${error}`)
     })
 })
 
@@ -58,7 +63,7 @@ app.post('/tv/setVolume', (req, res) => {
       res.status(200).send('Volume changed! :D')
     })
     .catch(error => {
-      console.log('Request error', error)
+      res.status(500).send(`Server error: ${error}`)
     })
 })
 
@@ -66,10 +71,10 @@ app.get('/tv/volumeUp', (req, res) => {
   server
     .volumeUp()
     .then(data => {
-      res.status(200).send('it worked!! :D')
+      res.status(200).send('Volume increased')
     })
     .catch(error => {
-      console.log('Request error', error)
+      res.status(500).send(`Server error: ${error}`)
     })
 })
 
@@ -77,21 +82,21 @@ app.get('/tv/volumeDown', (req, res) => {
   server
     .volumeDown()
     .then(data => {
-      res.status(200).send('it worked!! :D')
+      res.status(200).send('Volume decreased')
     })
     .catch(error => {
-      console.log('Request error', error)
+      res.status(500).send(`Server error: ${error}`)
     })
 })
 
-app.get('/tv/test', (req, res) => {
+app.get('/tv/skip', (req, res) => {
   server
     .skipNetflix()
     .then(data => {
-      res.status(200).send('it worked!! :D')
+      res.status(200).send('Intro skipped')
     })
     .catch(error => {
-      console.log('Request error', error)
+      res.status(500).send(`Server error: ${error}`)
     })
 })
 

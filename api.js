@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { baseApi, controller } from './consts'
+import { cecHDMI } from './cec-hdmi';
 
 class TVServer {
   // Controller related
@@ -53,6 +54,10 @@ class TVServer {
 
   getVolume() {
     return axios.get(`${baseApi}/audio/volume`)
+  }
+
+  turnOn() {
+    cecHDMI.turnOn()
   }
 }
 
